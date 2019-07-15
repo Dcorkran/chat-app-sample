@@ -4,6 +4,7 @@ import 'typeface-roboto';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import LoginButtonsContainer from './components/login-buttons-container';
+import Chat from './components/chat'
 
 class App extends Component {
   constructor() {
@@ -22,6 +23,10 @@ class App extends Component {
       });
     });
   }
+  handleMessageSubmit = (val) => (event) => {
+    const { socket, userName } = this.state
+    event.preventDefault();
+  }
 
   render() {
     return (
@@ -31,7 +36,7 @@ class App extends Component {
           {
             !this.state.userName ? 
             <LoginButtonsContainer handleLogin={this.handleLogin} /> :
-            <div>TODO</div>
+            <Chat handleMessageSubmit={this.handleMessageSubmit}/>
           }
         </Container>
       </React.Fragment>

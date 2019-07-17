@@ -15,13 +15,14 @@
 1. `cd` into the `frontend` directory
 2. `npm install | yarn add`
 3. `npm start`
+4. visit `http://localhost:3000` in your browser
 
 ## Usage
 
 1. Select a user
 2. Enter one of the following channels: `1 | 2 | 3` in the Channel ID text field. Press `enter / return`
 3. Type a chat message into the Message text field. Press `enter / return`
-4. Repeat steps 1 - 3 in a different browser window / tab with a different user (or the same user... it's a feature 😅) in the same channel to see the real time in action.
+4. Repeat steps 1 - 3 in a different browser window / tab with a different user (or the same user... it's a feature 😅) in the same channel to see the real time in action
 5. Press RESET button to select a new user / join a new channel
 
 ## License

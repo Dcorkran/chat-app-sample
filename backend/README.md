@@ -20,7 +20,7 @@
 2. `npm install`
 3. `knex migrate:latest`
 4. `knex seed:run`
-3. `npm start`
+5. `npm start`
 
 ## Usage
 

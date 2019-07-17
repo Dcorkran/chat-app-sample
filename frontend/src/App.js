@@ -15,12 +15,15 @@ class App extends Component {
       username: null
     };
   }
+
   handleUserSelect = (username) => {
     this.setState({username});
   }
+
   handleChannelSubmit = (channelId) => {
     this.setState({channelId});
   }
+  
   handleReset = () => {
     this.setState({
       channelId: null,

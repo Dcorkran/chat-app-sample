@@ -6,7 +6,8 @@ function getMessagesByChannel(id) {
   return knex
     .select('msg', 'sent_from')
     .table('messages')
-    .where('channel_id', id);
+    .where('channel_id', id)
+    .orderBy('created_at', 'asc');
 }
 
 function addMessage(data) {

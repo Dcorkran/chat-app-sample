@@ -6,29 +6,21 @@ const socketApi = {};
 
 socketApi.io = io;
 
-// const currentConnections = {};
-
 const clientSentMsg = async (socket, data) => {
   const { channel } = data;
   const addedMessage = await addMessage(data);
-  console.log('sending this thing', addedMessage[0]);
   socket.broadcast.to(channel).emit('serverSentMsg', addedMessage[0]);
 };
 
 require('socketio-auth')(io, {
   authenticate(socket, data, callback) {
     const { username, channel } = data;
-    const { id } = socket;
-    // currentConnections[username] = {
-    //   socketId: id,
-    // };
-    console.log(`USER ${username} CONNECTED - JOINING CHANNEL: ${channel} - ${Date.now()}`);
+    console.log(`USER ${username} CONNECTED - JOINING CHANNEL: ${channel} - TIME: ${Date.now()}`);
     socket.join(channel);
     return callback(null, true);
   },
   disconnect(socket) {
-    // delete currentConnections[socket.client.user];
-    console.log(`USER ${socket.client.user} DISCONNECTED - LEAVING CHANNEL : ${socket.client.channel} - ${Date.now()}`);
+    console.log(`USER ${socket.client.user} DISCONNECTED - TIME: ${Date.now()}`);
   },
   postAuthenticate(socket, data) {
     const { username, channel } = data;

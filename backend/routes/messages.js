@@ -3,8 +3,8 @@ const { getMessagesByChannel } = require('../db/queries');
 
 const router = express.Router();
 
-router.get('/messages', async (req, res) => {
-  const messages = await getMessagesByChannel(req.query.channel);
+router.get('/:channelId', async (req, res) => {
+  const messages = await getMessagesByChannel(req.params.channelId);
   res.send({ messages }).status(200);
 });
 module.exports = router;

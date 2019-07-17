@@ -11,13 +11,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function LoginButton(props) {
+export default function StyledButton(props) {
   const classes = useStyles();
-  const { color, handleLogin, userName } = props
+  const { color, handleClick, text } = props;
   return (
     <div>
-      <Button variant="contained" color={color} className={classes.button} onClick={() => handleLogin(userName)}>
-        {userName}
+      <Button variant="contained" color={color} className={classes.button} onClick={handleClick}>
+        {text}
       </Button>
     </div>
   );

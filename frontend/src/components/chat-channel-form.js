@@ -6,38 +6,45 @@ const useStyles = makeStyles(theme => ({
   container: {
     display: 'flex',
     flexWrap: 'wrap',
+    justifyContent: 'center',
+    marginTop: theme.spacing(3)
+  },
+  header: {
+    textAlign: 'center'
   },
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
+    marginTop: theme.spacing(3),
     width: '90%'
   }
 }));
 
 
-export default function ChatMessageform(props) {
+export default function ChatChannelForm(props) {
   const classes = useStyles();
   const [values, setValues] = React.useState({
-    msg: ''
+    channelId: ''
   });
 
   const handleChange = event => {
-    setValues({ ...values, msg: event.target.value });
+    setValues({ ...values, channelId: event.target.value });
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-    props.handleMessageSubmit(values.msg)
-    setValues({ ...values, msg: '' })
+    event.preventDefault();
+    props.handleChannelSubmit(values.channelId);
+    setValues({ ...values, channelId: '' });
   }
 
   return (
     <form className={classes.container} noValidate autoComplete="off" onSubmit={handleSubmit}>
+      <h1>Enter Channel ID</h1>
       <TextField
         id="outlined-name"
-        label="Message"
+        label="Channel ID"
         className={classes.textField}
-        value={values.msg}
+        value={values.channelId}
         onChange={handleChange}
         margin="normal"
         variant="outlined"

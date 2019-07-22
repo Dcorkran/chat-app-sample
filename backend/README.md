@@ -1,9 +1,7 @@
 # Chat App Demo - Backend
 
-* Project setup via `createreactapp`
-* Built using React
-* (Minimal) Styling using Material.ui
-* Client side webhooks using `Socket.io`
+* Built on node / express
+* Webhooks using `Socket.io`
 
 ## Prerequisites
 
